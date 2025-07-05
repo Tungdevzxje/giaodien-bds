@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.0/css/all.css">
+
 <?php
 require('db.php');
 $url = mysqli_real_escape_string($link, $_GET['url']);
@@ -507,32 +509,32 @@ $current_url = "https://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 </script>
 <!-- toast js-->
 <script>
-function copyLink(link) {
-    const tempInput = document.createElement("input");
-    tempInput.value = link;
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    tempInput.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
+    function copyLink(link) {
+        const tempInput = document.createElement("input");
+        tempInput.value = link;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
 
-    showToast("✔️ Đã sao chép liên kết!");
-}
+        showToast("✔️ Đã sao chép liên kết!");
+    }
 
-function showToast(message) {
-    const toast = document.getElementById("toast");
-    const toastMsg = document.createElement("div");
-    toastMsg.className = "toast-message";
-    toastMsg.textContent = message;
-    toast.appendChild(toastMsg);
-    toast.style.display = "block";
+    function showToast(message) {
+        const toast = document.getElementById("toast");
+        const toastMsg = document.createElement("div");
+        toastMsg.className = "toast-message";
+        toastMsg.textContent = message;
+        toast.appendChild(toastMsg);
+        toast.style.display = "block";
 
-    setTimeout(() => {
-        toastMsg.remove();
-        if (toast.childElementCount === 0) {
-            toast.style.display = "none";
-        }
-    }, 3000);
-}
+        setTimeout(() => {
+            toastMsg.remove();
+            if (toast.childElementCount === 0) {
+                toast.style.display = "none";
+            }
+        }, 3000);
+    }
 </script>
 <!-- toast js-->

@@ -159,7 +159,7 @@
             <img src="hinhmenu/icon-set-6.svg" alt="Xem ngày động thổ">
             <h3>Xem ngày động thổ</h3>
             <p>Chọn ngày tốt để khởi công xây nhà, tránh ngày xấu, phạm tuổi.</p>
-            <a href="xem-ngay-dong-tho.html">XEM CHI TIẾT</a>
+            <a href="#" class="developing" onclick="showDevelopingModal(); return false;">ĐANG PHÁT TRIỂN</a>
         </div>
     </div>
     <div style="
@@ -235,11 +235,7 @@
     </section>
 
     <style>
-        /* ... (CSS hiện có của bạn) ... */
-
-        /* CSS cho phần "Góc Kiến Thức Phong Thủy" */
         #fengshui-knowledge-corner {
-            /* Giữ nguyên các thuộc tính chung */
             padding: 80px 0;
             background: rgba(0, 0, 0, 0.65);
             backdrop-filter: blur(7px);
@@ -248,7 +244,6 @@
         }
 
         #fengshui-knowledge-corner h3 {
-            /* Giữ nguyên style tiêu đề H3 */
             font-size: 30px;
             text-align: center;
             color: #ffe4b5;
@@ -259,10 +254,7 @@
         .knowledge-grid {
             display: grid;
             gap: 30px;
-            /* Khoảng cách giữa các item */
-            /* Mặc định cho màn hình rất rộng, cố gắng hiển thị 4 cột */
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            /* Có thể điều chỉnh 220px nếu cần */
         }
 
         .knowledge-item {
@@ -296,13 +288,10 @@
             font-size: 15px;
             line-height: 1.6;
             min-height: 70px;
-            /* Thêm min-height để các thẻ có chiều cao tương đồng hơn */
             display: flex;
-            /* Dùng flex để căn chỉnh nội dung khi có min-height */
             align-items: center;
             /* Căn giữa dọc */
             justify-content: center;
-            /* Căn giữa ngang */
         }
 
         .knowledge-item a {
@@ -318,10 +307,8 @@
             color: #ffeb3b;
         }
 
-        /* Nút "Xem tất cả kiến thức" */
         .view-all-button {
             display: inline-block;
-            /* Quan trọng để áp dụng padding và margin */
             padding: 15px 35px;
             background: linear-gradient(to right, #4CAF50, #8BC34A);
             color: white;
@@ -339,76 +326,58 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* ********** RESPONSIVE ADJUSTMENTS ********** */
 
         @media (min-width: 1400px) {
             .knowledge-grid {
                 grid-template-columns: repeat(4, 1fr);
-                /* Đảm bảo 4 cột bằng nhau, mỗi cột chiếm 1 phần */
                 gap: 30px;
-                /* Khoảng cách giữa các cột */
             }
         }
 
-        /* Cho màn hình desktop thông thường (ví dụ: 993px - 1399px) - Vẫn cố gắng 4 cột */
         @media (min-width: 993px) and (max-width: 1399px) {
             .knowledge-grid {
                 grid-template-columns: repeat(4, 1fr);
-                /* Cố gắng hiển thị 4 cột */
                 gap: 20px;
-                /* Giảm khoảng cách giữa các cột để chúng vừa hơn */
             }
 
             .knowledge-item p {
                 font-size: 14px;
-                /* Giảm nhẹ font chữ mô tả để vừa vặn hơn trong không gian hẹp hơn */
                 min-height: 80px;
-                /* Tăng nhẹ min-height nếu cần để nội dung không bị quá chặt */
             }
 
             .knowledge-item h4 {
                 font-size: 18px;
-                /* Giảm font chữ tiêu đề */
             }
         }
 
-        /* Cho màn hình máy tính bảng (ví dụ: 769px - 992px) - 2 cột */
         @media (min-width: 769px) and (max-width: 992px) {
             .knowledge-grid {
                 grid-template-columns: repeat(2, 1fr);
-                /* Chắc chắn 2 cột */
                 gap: 30px;
             }
 
             .knowledge-item p {
                 min-height: 70px;
-                /* Điều chỉnh lại min-height cho 2 cột */
             }
         }
 
-        /* Cho màn hình điện thoại (ví dụ: <= 768px) - 1 cột */
         @media (max-width: 768px) {
             .knowledge-grid {
                 grid-template-columns: 1fr;
-                /* 1 cột */
                 gap: 30px;
             }
 
             .knowledge-item {
                 margin: 0 15px;
-                /* Khoảng cách hai bên */
             }
 
             .knowledge-item p {
                 min-height: unset;
-                /* Bỏ min-height trên mobile */
                 font-size: 15px;
-                /* Trả về font chuẩn cho mobile */
             }
 
             .knowledge-item h4 {
                 font-size: 20px;
-                /* Trả về font chuẩn cho mobile */
             }
 
             .view-all-button {
@@ -417,21 +386,93 @@
             }
         }
 
-        /* Thêm hoặc chỉnh sửa min-height cho p tag trong .knowledge-item */
-        /* Đây là thuộc tính mặc định, sẽ bị ghi đè bởi media queries ở trên */
         .knowledge-item p {
             min-height: 70px;
-            /* Đảm bảo các thẻ có chiều cao tương đối bằng nhau nếu nội dung ngắn */
             display: flex;
-            /* Dùng flex để căn chỉnh nội dung */
             align-items: center;
-            /* Căn giữa theo chiều dọc */
             justify-content: center;
-            /* Căn giữa theo chiều ngang */
             text-align: center;
-            /* Đảm bảo văn bản căn giữa */
         }
     </style>
 </body>
+<div id="developingModal" class="modal-overlay">
+    <div class="modal-box">
+        <h3>Tính năng đang phát triển</h3>
+        <p>Chức năng này hiện đang trong quá trình phát triển. Vui lòng quay lại sau!</p>
+        <button onclick="closeDevelopingModal()">Đóng</button>
+    </div>
+</div>
+<style>
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .modal-box {
+        background: #fff;
+        padding: 30px 20px;
+        max-width: 400px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        animation: fadeInScale 0.3s ease;
+    }
+
+    .modal-box h3 {
+        margin-top: 0;
+        font-size: 20px;
+        color: #ff6600;
+    }
+
+    .modal-box p {
+        font-size: 15px;
+        color: #444;
+        margin-bottom: 20px;
+    }
+
+    .modal-box button {
+        padding: 8px 18px;
+        background-color: #ff6600;
+        border: none;
+        color: white;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .modal-box button:hover {
+        background-color: #e85c00;
+    }
+
+    @keyframes fadeInScale {
+        from {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+</style>
+<script>
+    function showDevelopingModal() {
+        document.getElementById("developingModal").style.display = "flex";
+    }
+
+    function closeDevelopingModal() {
+        document.getElementById("developingModal").style.display = "none";
+    }
+</script>
 
 </html>

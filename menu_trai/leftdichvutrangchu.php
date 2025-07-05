@@ -51,7 +51,7 @@
 <div class="sidebar-wrap">
     <div class="sidebar-widget sidebar-widget-two">
         <div class="widget-title mb-30">
-            <p class="title p-text-change-h">Bài viết liên quan</p>
+            <p class="title p-text-change-h">Tin Nổi Bật Hàng Ngày</p>
             <div class="section-title-line"></div>
         </div>
         <div class="hot-post-wrap">
@@ -66,8 +66,8 @@
                 $url = $tv_2['linkurl'];
                 $thuocloai_id = $tv_2['thuocloai'];
 
-                $link_url = str_replace("?", "", "tin-tuc/$url"); // ✅ đổi tên biến
-            
+                $link_url = str_replace("?", "", "tin-tuc/$url");
+
                 $ten_loai = '';
                 $query_loai = mysqli_query($link, "SELECT * FROM loai_tin_tintuc WHERE id = $thuocloai_id LIMIT 1");
                 if ($row_loai = mysqli_fetch_array($query_loai)) {
@@ -94,4 +94,62 @@
             ?>
         </div>
     </div>
+    <div class="sidebar-widget sidebar-widget-two">
+        <div class="widget-title mb-30">
+            <p class="title p-text-change-h">Tin Bất Động Sản</p>
+            <div class="section-title-line"></div>
+        </div>
+        <div class="hot-post-wrap">
+            <?php
+            $tv = "SELECT * FROM tin_tintuc WHERE thuocloai = 38 ORDER BY id DESC LIMIT 2";
+            $tv_1 = mysqli_query($link, $tv);
+            $stt = 1;
+
+            while ($tv_2 = mysqli_fetch_array($tv_1)) {
+                $tieude = $tv_2['tieude'];
+                $url = str_replace("?", "", $tv_2['linkurl']);
+                ?>
+                <div class="hot-post-item">
+                    <div class="post-number-box"><?php echo $stt; ?></div>
+                    <div class="hot-post-content">
+                        <p class="post-title p-text-change-h">
+                            <a href="tin-tuc/<?php echo $url; ?>"><?php echo $tieude; ?></a>
+                            <span class="post-tag-inline">Tin BĐS</span>
+                        </p>
+                    </div>
+                </div>
+                <?php $stt++;
+            } ?>
+        </div>
+    </div>
+    <div class="sidebar-widget sidebar-widget-two">
+        <div class="widget-title mb-30">
+            <p class="title p-text-change-h">Tin Phong Thuỷ</p>
+            <div class="section-title-line"></div>
+        </div>
+        <div class="hot-post-wrap">
+            <?php
+            $tv = "SELECT * FROM tin_tintuc WHERE thuocloai = 37 ORDER BY id DESC LIMIT 2";
+            $tv_1 = mysqli_query($link, $tv);
+            $stt = 1;
+
+            while ($tv_2 = mysqli_fetch_array($tv_1)) {
+                $tieude = $tv_2['tieude'];
+                $url = str_replace("?", "", $tv_2['linkurl']);
+                ?>
+                <div class="hot-post-item">
+                    <div class="post-number-box"><?php echo $stt; ?></div>
+                    <div class="hot-post-content">
+                        <p class="post-title p-text-change-h">
+                            <a href="tin-tuc/<?php echo $url; ?>"><?php echo $tieude; ?></a>
+                            <span class="post-tag-inline">Phong thủy</span>
+                        </p>
+                    </div>
+                </div>
+                <?php $stt++;
+            } ?>
+        </div>
+    </div>
+
+
 </div>
