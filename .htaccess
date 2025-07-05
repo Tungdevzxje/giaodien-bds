@@ -1,0 +1,66 @@
+##Options +FollowSymLinks All
+RewriteEngine On
+
+Options -Indexes
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule  ^trang-chu$ index.php
+
+RewriteRule  ^gioithieu-ely$ chitiet.php?thamso=gioi_thieu
+RewriteRule  ^gioithieu/(.*)-(.*)$ chitiet.php?thamso=chitiet_gioithieu&url=$1&id=$2
+
+RewriteRule  ^duan-elyarchi$ chitiet.php?thamso=tin_dichvuabc
+RewriteRule  ^kyniemchuong-danang/([0-9]+)$ chitiet.php?thamso=tin_dichvu&page=$1
+RewriteRule  ^xuong-in/(.*)$ chitiet.php?thamso=tin_dichvuct&url=$1&id=$2
+RewriteRule  ^([a-zA-Z0-9_-]+)-([0-9]+)$ chitiet.php?thamso=chitiet_tindichvu&url=$1&id=$2
+RewriteRule  ^du-an/(.*)-(.*)$ chitiet.php?thamso=chitiet_tindichvuabc&url=$1&id=$2
+
+RewriteRule  ^tu-van$ chitiet.php?thamso=tin_dichvuabcd
+RewriteRule  ^tu-van/([0-9]+)$ chitiet.php?thamso=tin_dichvuabcd&page=$1
+RewriteRule  ^xay-dung/(.*)$ chitiet.php?thamso=tin_dichvuabcdct&url=$1&id=$2
+RewriteRule  ^([a-zA-Z0-9_-]+)-([0-9]+)$ chitiet.php?thamso=chitiet_tindichvuabcd&url=$1&id=$2
+RewriteRule  ^chitiet/(.*)-(.*)$ chitiet.php?thamso=chitiet_tindichvuabcd&url=$1&id=$2
+
+RewriteRule  ^phong-thuy$ chitiet.php?thamso=tin_dichvuu
+RewriteRule  ^thenhua-danang/([0-9]+)$ chitiet.php?thamso=tin_dichvuu&page=$1
+RewriteRule  ^cong-ty/(.*)$ chitiet.php?thamso=tin_dichvuuct&url=$1&id=$2
+RewriteRule  ^dichvu-inan-danang/([a-zA-Z0-9_-]+)/page=([0-9]+)$ chitiet.php?thamso=tin_dichvuu&url=$1&page=$2
+RewriteRule  ^tin-phong-thuy/(.*)-(.*)$ chitiet.php?thamso=chitiet_tindichvuu&url=$1&id=$2
+
+RewriteRule  ^thi-cong$ chitiet.php?thamso=tin_dichvu
+RewriteRule  ^thicong-noithat/([0-9]+)$ chitiet.php?thamso=tin_dichvu&page=$1
+RewriteRule  ^cong-ty/(.*)$ chitiet.php?thamso=tin_dichvuct&url=$1&id=$2
+RewriteRule  ^dichvu-inan-danang/([a-zA-Z0-9_-]+)/page=([0-9]+)$ chitiet.php?thamso=tin_dichvu&url=$1&page=$2
+RewriteRule  ^thong-tin/(.*)-(.*)$ chitiet.php?thamso=chitiet_tindichvu&url=$1&id=$2
+
+RewriteRule  ^inan-danang$ chitiet.php?thamso=ma_sanpham
+RewriteRule  ^inan-danang/([0-9]+)$ chitiet.php?thamso=ma_sanpham&page=$1
+RewriteRule  ^in-an/(.*)$ chitiet.php?thamso=ma_sanphamct&url=$1&id=$2
+RewriteRule  ^([a-zA-Z0-9_-]+)/([0-9]+)$ chitiet.php?thamso=ma_sanphamct&url=$1&page=$2
+RewriteRule  ^san-pham/(.*)-(.*)$ chitiet.php?thamso=chitiet_masanpham&url=$1&id=$2
+
+RewriteRule  ^blog-kientruc$ chitiet.php?thamso=tin_tintuc
+
+RewriteRule  ^blog-kientruc/trang/([0-9]+)$ chitiet.php?thamso=tin_tintuc&page=$1
+RewriteRule  ^tin-tuc/(.*)-(.*)$ chitiet.php?thamso=chitiet_tintintuc&url=$1&id=$2
+
+RewriteRule  ^lien-he$ chitiet.php?thamso=lien_he
+
+RewriteRule  ^xem-phong-thuy$ chitiet.php?thamso=xemphongthuy
+RewriteRule  ^xem-tuoi-lam-nha$ chitiet.php?thamso=xemtuoilamnha
+RewriteRule  ^huong-bep-phong-thuy$ chitiet.php?thamso=xemhuonglambep
+RewriteRule  ^xem-huong-ban-tho$ chitiet.php?thamso=xemhuongbantho
+RewriteRule  ^xem-huong-ban-lam-viec$ chitiet.php?thamso=xemhuonglamviec
+RewriteRule  ^xem-huong-giuong-ngu$ chitiet.php?thamso=xemhuonggiuongngu
+RewriteRule  ^cong-cu-phong-thuy$ chitiet.php?thamso=congcuphongthuy
+
+RewriteRule ^search/(.*)$ timkiem.php?q=$1 [L,QSA]
+RewriteRule ^search/$ /index.php [L,R=301]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php82” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php82 .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
